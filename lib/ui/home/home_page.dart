@@ -1,3 +1,11 @@
+import 'package:code_generator/ui/home/activity_page.dart';
+import 'package:code_generator/ui/home/adapter_page.dart';
+import 'package:code_generator/ui/home/dialog_page.dart';
+import 'package:code_generator/ui/home/fragment_page.dart';
+import 'package:code_generator/ui/home/manifest_page.dart';
+import 'package:code_generator/ui/home/selector_page.dart';
+import 'package:code_generator/ui/home/viewbinding_page.dart';
+import 'package:code_generator/ui/home/work_page.dart';
 import 'package:flutter/material.dart';
 import 'package:hovering/hovering.dart';
 import 'package:window_manager/window_manager.dart';
@@ -24,6 +32,18 @@ class _MyHomePageState extends State<MyHomePage> with WindowListener {
     Navigation("Dialog", Icons.outbox_rounded, false),
     Navigation("Selector", Icons.check_circle_rounded, false),
     Navigation("AndroidManifest", Icons.room_preferences_rounded, false),
+  ];
+
+  List<Widget> page = [
+    const WorkPage(),
+    const ActivityPage(),
+    const FragmentPage(),
+    const ViewBindingPage(),
+    const AdapterPage(),
+    const AdapterPage(),
+    const DialogPage(),
+    const SelectorPage(),
+    const ManifestPage(),
   ];
 
   @override
@@ -115,21 +135,7 @@ class _MyHomePageState extends State<MyHomePage> with WindowListener {
                   controller: _transController,
                   itemCount: navigator.length,
                   itemBuilder: (context, index) {
-                    return Container(
-                      color: Colors.white,
-                      child: Column(
-                        children: [
-                          Expanded(
-                            child: Container(
-                              color: colorsa[index],
-                              child: Center(
-                                child: Text("Content$index"),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    );
+                    return page[index];
                   },
                 )),
           ],
