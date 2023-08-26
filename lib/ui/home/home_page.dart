@@ -22,6 +22,19 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> with WindowListener {
   final PageController _transController = PageController();
 
+  @override
+  void initState() {
+    super.initState();
+    windowManager.addListener(this);
+  }
+
+  @override
+  void dispose() {
+    windowManager.removeListener(this);
+    _transController.dispose();
+    super.dispose();
+  }
+
   List<Navigation> navigator = [
     Navigation("Work", Icons.badge_rounded, false),
     Navigation("Activity", Icons.layers_rounded, false),
@@ -45,19 +58,6 @@ class _MyHomePageState extends State<MyHomePage> with WindowListener {
     const SelectorPage(),
     const ManifestPage(),
   ];
-
-  @override
-  void initState() {
-    super.initState();
-    windowManager.addListener(this);
-  }
-
-  @override
-  void dispose() {
-    windowManager.removeListener(this);
-    _transController.dispose();
-    super.dispose();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -127,10 +127,10 @@ class _MyHomePageState extends State<MyHomePage> with WindowListener {
                     });
                   }),
             ),
-            Container(
-                color: Colors.white,
+            SizedBox(
                 width: MediaQuery.of(context).size.width - 260,
                 child: PageView.builder(
+                  physics: const NeverScrollableScrollPhysics(),
                   scrollDirection: Axis.vertical,
                   controller: _transController,
                   itemCount: navigator.length,
@@ -143,34 +143,6 @@ class _MyHomePageState extends State<MyHomePage> with WindowListener {
       ),
     );
   }
-
-  List<Color> colorsa = [
-    Colors.red,
-    Colors.blue,
-    Colors.green,
-    Colors.yellow,
-    Colors.purple,
-    Colors.orange,
-    Colors.pink,
-    Colors.cyan,
-    Colors.brown,
-    Colors.grey,
-    Colors.indigo,
-    Colors.lime,
-    Colors.teal,
-    Colors.amber,
-    Colors.deepOrange,
-    Colors.deepPurple,
-    Colors.lightBlue,
-    Colors.lightGreen,
-    Colors.limeAccent,
-    Colors.tealAccent,
-    Colors.amberAccent,
-    Colors.deepOrangeAccent,
-    Colors.deepPurpleAccent,
-    Colors.lightBlueAccent,
-    Colors.lightGreenAccent
-  ];
 
   Widget leftItem(String title, IconData icon, bool isSelect, VoidCallback onPressed) {
     return Padding(
