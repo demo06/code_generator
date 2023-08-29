@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-class SelectorPage extends StatefulWidget {
-  const SelectorPage({super.key});
+class SettingPage extends StatefulWidget {
+  const SettingPage({super.key});
 
   @override
-  State<StatefulWidget> createState() => _SelectorPageState();
+  State<StatefulWidget> createState() => _SettingPageState();
 }
 
-class _SelectorPageState extends State<SelectorPage> with AutomaticKeepAliveClientMixin {
+class _SettingPageState extends State<SettingPage> with AutomaticKeepAliveClientMixin {
   final TextEditingController _controller = TextEditingController();
 
   @override
@@ -28,7 +28,7 @@ class _SelectorPageState extends State<SelectorPage> with AutomaticKeepAliveClie
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            const Text('Selector生成', style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
+            const Text('Setting', style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
             Padding(
               padding: const EdgeInsets.only(top: 36.0),
               child: TextField(

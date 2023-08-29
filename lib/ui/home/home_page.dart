@@ -4,6 +4,8 @@ import 'package:code_generator/ui/home/dialog_page.dart';
 import 'package:code_generator/ui/home/fragment_page.dart';
 import 'package:code_generator/ui/home/manifest_page.dart';
 import 'package:code_generator/ui/home/selector_page.dart';
+import 'package:code_generator/ui/home/setting_page.dart';
+import 'package:code_generator/ui/home/shape_view_page.dart';
 import 'package:code_generator/ui/home/viewbinding_page.dart';
 import 'package:code_generator/ui/home/work_page.dart';
 import 'package:flutter/material.dart';
@@ -36,15 +38,17 @@ class _MyHomePageState extends State<MyHomePage> with WindowListener {
   }
 
   List<Navigation> navigator = [
-    Navigation("Work", Icons.badge_rounded, false),
+    Navigation("Work", Icons.badge_rounded, true),
     Navigation("Activity", Icons.layers_rounded, false),
     Navigation("Fragment", Icons.segment_rounded, false),
-    Navigation("ViewBinding", Icons.preview_rounded, false),
+    Navigation("ActivityLayout", Icons.preview_rounded, false),
     Navigation("Adapter", Icons.power_rounded, false),
-    Navigation("AdapterItem", Icons.settings_input_component_rounded, true),
+    Navigation("AdapterItem", Icons.settings_input_component_rounded, false),
+    Navigation("ShapeView", Icons.streetview_outlined, false),
     Navigation("Dialog", Icons.outbox_rounded, false),
     Navigation("Selector", Icons.check_circle_rounded, false),
     Navigation("AndroidManifest", Icons.room_preferences_rounded, false),
+    Navigation("Setting", Icons.settings_rounded, false),
   ];
 
   List<Widget> page = [
@@ -54,9 +58,11 @@ class _MyHomePageState extends State<MyHomePage> with WindowListener {
     const ViewBindingPage(),
     const AdapterPage(),
     const AdapterPage(),
+    const ShapeViewPage(),
     const DialogPage(),
     const SelectorPage(),
     const ManifestPage(),
+    const SettingPage(),
   ];
 
   @override

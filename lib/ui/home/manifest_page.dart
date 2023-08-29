@@ -19,7 +19,7 @@ String generatorManifest(String className, String description) {
 }
 
 class _ManifestPageState extends State<ManifestPage> with AutomaticKeepAliveClientMixin {
-  late final TextEditingController _controller = TextEditingController();
+  final TextEditingController _controller = TextEditingController();
 
   @override
   void dispose() {
@@ -29,6 +29,7 @@ class _ManifestPageState extends State<ManifestPage> with AutomaticKeepAliveClie
 
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     return Container(
       color: const Color(0XFFEFF4F9),
       child: Padding(
