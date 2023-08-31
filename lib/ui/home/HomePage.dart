@@ -1,13 +1,12 @@
-import 'package:code_generator/ui/home/activity_page.dart';
-import 'package:code_generator/ui/home/adapter_page.dart';
-import 'package:code_generator/ui/home/dialog_page.dart';
-import 'package:code_generator/ui/home/fragment_page.dart';
-import 'package:code_generator/ui/home/manifest_page.dart';
-import 'package:code_generator/ui/home/selector_page.dart';
-import 'package:code_generator/ui/home/setting_page.dart';
-import 'package:code_generator/ui/home/shape_view_page.dart';
-import 'package:code_generator/ui/home/viewbinding_page.dart';
-import 'package:code_generator/ui/home/work_page.dart';
+import 'package:code_generator/ui/home/ActivityPage.dart';
+import 'package:code_generator/ui/home/AdapterPage.dart';
+import 'package:code_generator/ui/home/DialogPage.dart';
+import 'package:code_generator/ui/home/FragmentPage.dart';
+import 'package:code_generator/ui/home/ManifestPage.dart';
+import 'package:code_generator/ui/home/SelectorPage.dart';
+import 'package:code_generator/ui/home/SettingPage.dart';
+import 'package:code_generator/ui/home/ShapePage.dart';
+import 'package:code_generator/ui/home/WorkPage.dart';
 import 'package:flutter/material.dart';
 import 'package:hovering/hovering.dart';
 import 'package:window_manager/window_manager.dart';
@@ -39,30 +38,26 @@ class _MyHomePageState extends State<MyHomePage> with WindowListener {
 
   List<Navigation> navigator = [
     Navigation("Work", Icons.badge_rounded, true),
+    Navigation("Custom", Icons.settings_rounded, false),
     Navigation("Activity", Icons.layers_rounded, false),
     Navigation("Fragment", Icons.segment_rounded, false),
-    Navigation("ActivityLayout", Icons.preview_rounded, false),
     Navigation("Adapter", Icons.power_rounded, false),
-    Navigation("AdapterItem", Icons.settings_input_component_rounded, false),
     Navigation("ShapeView", Icons.streetview_outlined, false),
     Navigation("Dialog", Icons.outbox_rounded, false),
     Navigation("Selector", Icons.check_circle_rounded, false),
-    Navigation("AndroidManifest", Icons.room_preferences_rounded, false),
-    Navigation("Setting", Icons.settings_rounded, false),
+    Navigation("AndroidManifest", Icons.room_preferences_rounded, false)
   ];
 
   List<Widget> page = [
     const WorkPage(),
+    const SettingPage(),
     const ActivityPage(),
     const FragmentPage(),
-    const ViewBindingPage(),
-    const AdapterPage(),
     const AdapterPage(),
     const ShapeViewPage(),
     const DialogPage(),
     const SelectorPage(),
     const ManifestPage(),
-    const SettingPage(),
   ];
 
   @override
@@ -154,7 +149,6 @@ class _MyHomePageState extends State<MyHomePage> with WindowListener {
     return Padding(
       padding: const EdgeInsets.only(left: 10, right: 10, top: 2, bottom: 2),
       child: HoverButton(
-        splashColor: Colors.red,
         elevation: 0,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(4),

@@ -33,7 +33,7 @@ class _DialogPageState extends State<DialogPage> with AutomaticKeepAliveClientMi
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            const Text('Selector生成', style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
+            const Text('Dialog生成', style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
             Padding(
               padding: const EdgeInsets.only(top: 36.0),
               child: TextField(

@@ -15,6 +15,12 @@ class _ShapeViewPageState extends State<ShapeViewPage> with AutomaticKeepAliveCl
   int groupIndex = 1;
 
   @override
+  void initState() {
+    super.initState();
+    _generateContext();
+  }
+
+  @override
   void dispose() {
     super.dispose();
     _controller.dispose();
@@ -107,9 +113,7 @@ class _ShapeViewPageState extends State<ShapeViewPage> with AutomaticKeepAliveCl
                     flex: 1,
                     child: Padding(
                       padding: EdgeInsets.only(right: 8.0),
-                      child: SizedBox(
-                          width: double.infinity,
-                          child: Text('')),
+                      child: SizedBox(width: double.infinity, child: Text('')),
                     ),
                   ),
                   Flexible(
@@ -132,10 +136,9 @@ class _ShapeViewPageState extends State<ShapeViewPage> with AutomaticKeepAliveCl
 
   void _changed(value) {
     groupIndex = value;
-    setState(() {});
-    if (kDebugMode) {
-      print("groupIndex = $groupIndex");
-    }
+    setState(() {
+      _generateContext();
+    });
   }
 
   _copyToClipBoard() {
@@ -160,7 +163,7 @@ class _ShapeViewPageState extends State<ShapeViewPage> with AutomaticKeepAliveCl
         _controller.text = generatorShapeBackGroundRelationView('4', '#FF0000', '#00FF00', '1');
         break;
       default:
-        _controller.text="";
+        _controller.text = "";
     }
   }
 

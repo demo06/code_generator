@@ -1,4 +1,4 @@
-import 'package:code_generator/ui/home/home_page.dart';
+import 'package:code_generator/ui/home/HomePage.dart';
 import 'package:flutter/material.dart';
 import 'package:window_manager/window_manager.dart';
 
