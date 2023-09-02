@@ -16,6 +16,8 @@ dependencies:
   hovering: ^1.0.4
   shared_preferences: ^2.2.1
   file_selector: ^1.0.1
+  git: ^2.2.1
+  flutter_gbk2utf8: ^1.0.0
 
 dev_dependencies:
   flutter_test:
