@@ -150,6 +150,14 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_gbk2utf8:
+    dependency: "direct main"
+    description:
+      name: flutter_gbk2utf8
+      sha256: e058ad7a64919baa85f0c7b1afa1c4930aae867b20b4e83a930cc63ba11521e3
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "1.0.0"
   flutter_lints:
     dependency: "direct dev"
     description:
@@ -168,6 +176,14 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  git:
+    dependency: "direct main"
+    description:
+      name: git
+      sha256: "1982737427ef1ef2bb69027ea0234469774495e86afe202de81ee46d37364e55"
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "2.2.1"
   hovering:
     dependency: "direct main"
     description:
