@@ -143,7 +143,7 @@ class _ShapeViewPageState extends State<ShapeViewPage> with AutomaticKeepAliveCl
 
   _copyToClipBoard() {
     return () {
-      Clipboard.setData(ClipboardData(text: _generateContext()));
+      Clipboard.setData(ClipboardData(text:_controller.text));
       ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('复制成功')));
     };
   }

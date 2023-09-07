@@ -11,6 +11,11 @@ class GitUtil {
   }
 
   static int getCommitDate(Commit commit) {
-    return int.parse(commit.author.split(" ")[2]);
+    if(commit.author.contains("demo06@126.com")){
+      return int.parse(commit.author.split(" ")[2]);
+    }else{
+      return 0;
+    }
+
   }
 }
