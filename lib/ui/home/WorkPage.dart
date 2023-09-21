@@ -18,6 +18,7 @@ class WorkPage extends StatefulWidget {
 }
 
 class _WorkPageState extends State<WorkPage> {
+  final TextEditingController _controller = TextEditingController();
   final todayTime = TimeUtil().getTodayStartTime();
   Utf8Decoder decoder = const Utf8Decoder();
   List<DailyWork> workLog = [];
@@ -72,7 +73,7 @@ class _WorkPageState extends State<WorkPage> {
     return Container(
       color: const Color(0XFFEFF4F9),
       child: Padding(
-        padding: const EdgeInsets.only(left: 12.0, right:  12, top: 0, bottom: 12),
+        padding: const EdgeInsets.only(left: 12.0, right: 12, top: 0, bottom: 12),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -109,9 +110,10 @@ class _WorkPageState extends State<WorkPage> {
                           width: double.infinity,
                           child: ElevatedButton(
                               onPressed: () {
-                                getGitDirectoryInfo();
+                                _showInputDialog();
+                                // getGitDirectoryInfo();
                               },
-                              child: const Text('Fetch Work Record'))),
+                              child: const Text('Addition other work content'))),
                     ),
                   ),
                   Flexible(
@@ -131,5 +133,45 @@ class _WorkPageState extends State<WorkPage> {
         ),
       ),
     );
+  }
+
+  void _showInputDialog() {
+    var inputVal = "";
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text('input your work content'),
+          content: TextField(
+            controller: _controller,
+          ),
+          actions: <Widget>[
+            TextButton(
+              child: const Text('Cancel'),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+            TextButton(
+              child: const Text('Submit'),
+              onPressed: () {
+                setState(() {
+                  workLog.add(DailyWork(_controller.text, true));
+                  _controller.text="";
+                });
+                // Do something with the input value
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    _controller.dispose();
   }
 }
